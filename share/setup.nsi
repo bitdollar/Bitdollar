@@ -1,4 +1,4 @@
-Name DigiByte
+Name Bitdollar
 
 RequestExecutionLevel highest
 SetCompressor /SOLID lzma
@@ -6,8 +6,8 @@ SetCompressor /SOLID lzma
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION 1.0.0.4
-!define COMPANY "DigiByte project"
-!define URL http://www.digibyte.org/
+!define COMPANY "Bitdollar project"
+!define URL http://www.Bitdollar.org/
 
 # MUI Symbol Definitions
 !define MUI_ICON "../share/pixmaps/bitcoin.ico"
@@ -19,8 +19,8 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER DigiByte
-!define MUI_FINISHPAGE_RUN $INSTDIR\digibyte-qt.exe
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER Bitdollar
+!define MUI_FINISHPAGE_RUN $INSTDIR\Bitdollar-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "../share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
@@ -45,14 +45,14 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile digibyte-1.0.0.4-win32-setup.exe
-InstallDir $PROGRAMFILES\DigiByte
+OutFile Bitdollar-1.0.0.4-win32-setup.exe
+InstallDir $PROGRAMFILES\Bitdollar
 CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
 VIProductVersion 1.0.0.4
-VIAddVersionKey ProductName DigiByte
+VIAddVersionKey ProductName Bitdollar
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
@@ -66,18 +66,18 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File ../release/digibyte-qt.exe
+    File ../release/Bitdollar-qt.exe
     File /oname=license.txt ../COPYING
     File /oname=readme.txt ../doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File ../src/digibyted.exe
+    File ../src/Bitdollard.exe
     SetOutPath $INSTDIR\src
     File /r /x *.exe /x *.o ../src\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
     # Remove old wxwidgets-based-bitcoin executable and locales:
-    Delete /REBOOTOK $INSTDIR\digibyte.exe
+    Delete /REBOOTOK $INSTDIR\Bitdollar.exe
     RMDir /r /REBOOTOK $INSTDIR\locale
 SectionEnd
 
@@ -87,8 +87,8 @@ Section -post SEC0001
     WriteUninstaller $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\DigiByte.lnk" $INSTDIR\digibyte-qt.exe
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall DigiByte.lnk" $INSTDIR\uninstall.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Bitdollar.lnk" $INSTDIR\Bitdollar-qt.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall Bitdollar.lnk" $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_END
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayVersion "${VERSION}"
@@ -98,10 +98,10 @@ Section -post SEC0001
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" UninstallString $INSTDIR\uninstall.exe
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
-    WriteRegStr HKCR "digibyte" "URL Protocol" ""
-    WriteRegStr HKCR "digibyte" "" "URL:Bitcoin"
-    WriteRegStr HKCR "digibyte\DefaultIcon" "" $INSTDIR\digibyte-qt.exe
-    WriteRegStr HKCR "digibyte\shell\open\command" "" '"$INSTDIR\digibyte-qt.exe" "$$1"'
+    WriteRegStr HKCR "Bitdollar" "URL Protocol" ""
+    WriteRegStr HKCR "Bitdollar" "" "URL:Bitcoin"
+    WriteRegStr HKCR "Bitdollar\DefaultIcon" "" $INSTDIR\Bitdollar-qt.exe
+    WriteRegStr HKCR "Bitdollar\shell\open\command" "" '"$INSTDIR\Bitdollar-qt.exe" "$$1"'
 SectionEnd
 
 # Macro for selecting uninstaller sections
@@ -119,7 +119,7 @@ done${UNSECTION_ID}:
 
 # Uninstaller sections
 Section /o -un.Main UNSEC0000
-    Delete /REBOOTOK $INSTDIR\digibyte-qt.exe
+    Delete /REBOOTOK $INSTDIR\Bitdollar-qt.exe
     Delete /REBOOTOK $INSTDIR\license.txt
     Delete /REBOOTOK $INSTDIR\readme.txt
     RMDir /r /REBOOTOK $INSTDIR\daemon
@@ -129,9 +129,9 @@ SectionEnd
 
 Section -un.post UNSEC0001
     DeleteRegKey HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall DigiByte.lnk"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\DigiByte.lnk"
-    Delete /REBOOTOK "$SMSTARTUP\DigiByte.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall Bitdollar.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Bitdollar.lnk"
+    Delete /REBOOTOK "$SMSTARTUP\Bitdollar.lnk"
     Delete /REBOOTOK $INSTDIR\uninstall.exe
     Delete /REBOOTOK $INSTDIR\debug.log
     Delete /REBOOTOK $INSTDIR\db.log
@@ -139,7 +139,7 @@ Section -un.post UNSEC0001
     DeleteRegValue HKCU "${REGKEY}" Path
     DeleteRegKey /IfEmpty HKCU "${REGKEY}\Components"
     DeleteRegKey /IfEmpty HKCU "${REGKEY}"
-    DeleteRegKey HKCR "digibyte"
+    DeleteRegKey HKCR "Bitdollar"
     RmDir /REBOOTOK $SMPROGRAMS\$StartMenuGroup
     RmDir /REBOOTOK $INSTDIR
     Push $R0

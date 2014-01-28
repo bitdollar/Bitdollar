@@ -1,8 +1,8 @@
-DigiByte 0.6 BETA
+Bitdollar 0.6 BETA
 
 Copyright (c) 2009-2012 Bitcoin Developers
 Copyright (c) 2011-2012 Litecoin Developers
-Copyright (c) 2013 DigiByte Developers
+Copyright (c) 2013 Bitdollar Developers
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
 This product includes software developed by the OpenSSL Project for use in
@@ -12,7 +12,7 @@ cryptographic software written by Eric Young (eay@cryptsoft.com).
 
 Intro
 -----
-DigiByte is a free open source peer-to-peer electronic cash system that is
+Bitdollar is a free open source peer-to-peer electronic cash system that is
 completely decentralized, without the need for a central server or trusted
 parties.  Users hold the crypto keys to their own money and transact directly
 with each other, with the help of a P2P network to check for double-spending.
@@ -20,17 +20,17 @@ with each other, with the help of a P2P network to check for double-spending.
 
 Setup
 -----
-Unpack the files into a directory and run digibyte-qt.exe.
+Unpack the files into a directory and run Bitdollar-qt.exe.
 
-If you have Microsoft Security Essentials, you need to add digibyte-qt.exe to its
+If you have Microsoft Security Essentials, you need to add Bitdollar-qt.exe to its
 "Excluded processes" list.  Microsoft Security Essentials->Settings tab,
-select Excluded processes, press Add, select digibyte-qt.exe, OK, Save changes.
+select Excluded processes, press Add, select Bitdollar-qt.exe, OK, Save changes.
 
 The software automatically finds other nodes to connect to.  You can
 enable Universal Plug and Play using a menu entry or set your firewall
 to forward port 9333 (TCP) to your computer so you can receive
-incoming connections.  DigiByte works without incoming connections,
-but allowing incoming connections helps the DigiByte network.
+incoming connections.  Bitdollar works without incoming connections,
+but allowing incoming connections helps the Bitdollar network.
 
 See the bitcoin wiki at:
   https://en.bitcoin.it/wiki/Main_Page

@@ -17,7 +17,7 @@ UBUNTU COMPILE Bitdollard
 ========================
 cd ~
 
-git clone git://github.com/bitdollar/Bitdollar.git
+git clone git://github.com/Bitdollar/BitdollarProject.git
 
 cd /Bitdollar/src
 
@@ -61,7 +61,7 @@ Twitter: https://twitter.com/Bitdollarcoin
 
 VK: https://vk.com/Bitdollar
 
-Reddit: http://www.reddit.com/r/Bitdollar/
+Reddit: http://www.reddit.com/r/Digibyte/
 
 IRC Channel: http://webchat.freenode.net/?channels=#Bitdollarcoin
 

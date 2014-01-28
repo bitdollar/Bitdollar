@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Copyright (c) 2011-2012 Litecoin Developers
-// Copyright (c) 2013 DigiByte Developers
+// Copyright (c) 2013 Bitdollar Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1062,7 +1062,7 @@ void ThreadMapPort2(void* parg)
             }
         }
 
-        string strDesc = "DigiByte " + FormatFullVersion();
+        string strDesc = "Bitdollar " + FormatFullVersion();
 #ifndef UPNPDISCOVER_SUCCESS
         /* miniupnpc 1.5 */
         r = UPNP_AddPortMapping(urls.controlURL, data.first.servicetype,
@@ -1142,9 +1142,8 @@ void MapPort()
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strMainNetDNSSeed[][2] = {
-    {"digibyte.co seed #1", "seed1.digibyte.co"},
+    {"Bitdollar.info seed #1", "seed1.Bitdollar.co"},
     {"hashdragon.com seed #2", "seed2.hashdragon.com"},
-    {"dgb.luckyminers.com seed #3", "dgb.luckyminers.com"},
     {"70.196.193.231 seed #4", "70.196.193.231"},
     {"198.98.118.241 seed #5", "198.98.118.241"},
     {"142.4.204.115 seed #6", "142.4.204.115"},
@@ -1154,14 +1153,15 @@ static const char *strMainNetDNSSeed[][2] = {
     {"83.172.105.46 seed #10", "83.172.105.46"},
     {"24.119.23.61 seed #11", "24.119.23.61"},
     {"ceqsy.com seed #12", "ceqsy.com"},
-    {"digi.coinium.org seed #13", "digi.coinium.org"},
+    //{"digi.coinium.org seed #13", "digi.coinium.org"},
+    //Luckyminers
     {"216.250.125.121 seed #14", "216.250.125.121"},
     {"115.28.31.25 seed #15", "115.28.31.25 "},
     {NULL, NULL}
 };
 
 static const char *strTestNetDNSSeed[][2] = {
-    {"digibyte.co testnet seed #1", "testnet-seed1.digibyte.co"},
+    {"Bitdollar.info testnet seed #1", "testnet-seed1.Bitdollar.info"},
     {NULL, NULL}
 };
 
@@ -1797,7 +1797,7 @@ bool BindListenPort(const CService &addrBind, string& strError)
     {
         int nErr = WSAGetLastError();
         if (nErr == WSAEADDRINUSE)
-            strError = strprintf(_("Unable to bind to %s on this computer. DigiByte is probably already running."), addrBind.ToString().c_str());
+            strError = strprintf(_("Unable to bind to %s on this computer. Bitdollar is probably already running."), addrBind.ToString().c_str());
         else
             strError = strprintf(_("Unable to bind to %s on this computer (bind returned error %d, %s)"), addrBind.ToString().c_str(), nErr, strerror(nErr));
         printf("%s\n", strError.c_str());
